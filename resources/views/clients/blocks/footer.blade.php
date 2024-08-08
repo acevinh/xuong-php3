@@ -1,5 +1,5 @@
-  <!-- footer area start -->
-  <footer class="footer-widget-area">
+<!-- footer area start -->
+<footer class="footer-widget-area">
     <div class="footer-top section-padding">
         <div class="container">
             <div class="row">
@@ -8,7 +8,7 @@
                         <div class="widget-title">
                             <div class="widget-logo">
                                 <a href="index.html">
-                                    <img src="{{ asset('assets/client/img/logo/logo.png')}}" alt="brand logo">
+                                    <img src="{{ asset('assets/client/img/logo/logo.png') }}" alt="brand logo">
                                 </a>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="footer-payment">
-                        <img src="{{ asset('assets/client/img/payment.png')}}" alt="payment method">
+                        <img src="{{ asset('assets/client/img/payment.png') }}" alt="payment method">
                     </div>
                 </div>
             </div>

@@ -10,17 +10,17 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/auth/img/favicon.png')}}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/auth/img/favicon.png') }}">
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="{{ asset('assets/auth/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('assets/auth/css/bootstrap.min.css') }}">
 	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="{{ asset('assets/auth/css/fontawesome-all.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('assets/auth/css/fontawesome-all.min.css') }}">
 	<!-- Flaticon CSS -->
-	<link rel="stylesheet" href="{{ asset('assets/auth/font/flaticon.css')}}">
+	<link rel="stylesheet" href="{{ asset('assets/auth/font/flaticon.css') }}">
 	<!-- Google Web Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
 	<!-- Custom CSS -->
-	<link rel="stylesheet" href="{{ asset('assets/auth/style.css')}}">
+	<link rel="stylesheet" href="{{ asset('assets/auth/style.css') }}">
 </head>
 
 <body>
@@ -34,12 +34,12 @@
             <div class='line3'></div>
         </div>
     </div>
-	<section class="fxt-template-animation fxt-template-layout9" data-bg-image="{{ asset('assets/auth/img/figure/bg9-l.jpg')}}">
+	<section class="fxt-template-animation fxt-template-layout9" data-bg-image="{{ asset('assets/auth/img/figure/bg9-l.jpg') }}">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-3">
 					<div class="fxt-header">
-						<a href="login-9.html" class="fxt-logo"><img src="{{ asset('assets/auth/img/logo-9.png')}}" alt="Logo"></a>
+						<a href="login-9.html" class="fxt-logo"><img src="{{ asset('assets/auth/img/logo-9.png') }}" alt="Logo"></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -49,15 +49,15 @@
 		</div>
 	</section>
 	<!-- jquery-->
-	<script src="{{ asset('assets/auth/js/jquery.min.js')}}"></script>
+	<script src="{{ asset('assets/auth/js/jquery.min.js') }}"></script>
 	<!-- Bootstrap js -->
-	<script src="{{ asset('assets/auth/js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('assets/auth/js/bootstrap.min.js') }}"></script>
 	<!-- Imagesloaded js -->
-	<script src="{{ asset('assets/auth/js/imagesloaded.pkgd.min.js')}}"></script>
+	<script src="{{ asset('assets/auth/js/imagesloaded.pkgd.min.js') }}"></script>
 	<!-- Validator js -->
-	<script src="{{ asset('assets/auth/js/validator.min.js')}}"></script>
+	<script src="{{ asset('assets/auth/js/validator.min.js') }}"></script>
 	<!-- Custom Js -->
-	<script src="{{ asset('assets/auth/js/main.js')}}"></script>
+	<script src="{{ asset('assets/auth/js/main.js') }}"></script>
 
 </body>
 

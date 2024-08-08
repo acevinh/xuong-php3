@@ -8,15 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class DanhMuc extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'hinh_anh',
         'ten_danh_muc',
-        'trang_thai'
+        'trang_thai',
     ];
+
     protected $casts = [
-'trang_thai'=>'boolean'
+        'trang_thai' => 'boolean'
     ];
-    public function sanPham(){
+
+    public function sanPhams()
+    {
         return $this->hasMany(SanPham::class);
     }
 }

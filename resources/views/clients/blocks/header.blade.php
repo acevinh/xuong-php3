@@ -1,5 +1,5 @@
-   <!-- Start Header Area -->
-   <header class="header-area header-wide">
+<!-- Start Header Area -->
+<header class="header-area header-wide">
     <!-- main header start -->
     <div class="main-header d-none d-lg-block">
         <!-- header top start -->
@@ -23,11 +23,11 @@
                                     </ul>
                                 </li>
                                 <li class="language">
-                                    <img src="{{ asset('assets/client/img/icon/en.png')}}" alt="flag"> English
+                                    <img src="{{ asset('assets/client/img/icon/en.png" alt="flag') }}"> English
                                     <i class="fa fa-angle-down"></i>
                                     <ul class="dropdown-list">
-                                        <li><a href="#"><img src="{{ asset('assets/client/img/icon/en.png')}}" alt="flag"> english</a></li>
-                                        <li><a href="#"><img src="{{ asset('assets/client/img/icon/fr.png')}}" alt="flag"> french</a></li>
+                                        <li><a href="#"><img src="{{ asset('assets/client/img/icon/en.png') }}" alt="flag"> english</a></li>
+                                        <li><a href="#"><img src="{{ asset('assets/client/img/icon/fr.png') }}" alt="flag"> french</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -47,7 +47,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="{{ asset('assets/client/img/logo/logo.png')}}" alt="Brand Logo">
+                                <img src="{{ asset('assets/client/img/logo/logo.png') }}" alt="Brand Logo">
                             </a>
                         </div>
                     </div>
@@ -106,12 +106,12 @@
                                                 </li>
                                                 <li class="megamenu-banners d-none d-lg-block">
                                                     <a href="product-details.html">
-                                                        <img src="{{ asset('assets/client/img/banner/img1-static-menu.jpg')}}" alt="">
+                                                        <img src="{{ asset('assets/client/img/banner/img1-static-menu.jpg') }}" alt="">
                                                     </a>
                                                 </li>
                                                 <li class="megamenu-banners d-none d-lg-block">
                                                     <a href="product-details.html">
-                                                        <img src="{{ asset('assets/client/img/banner/img2-static-menu.jpg')}}" alt="">
+                                                        <img src="{{ asset('assets/client/img/banner/img2-static-menu.jpg') }}" alt="">
                                                     </a>
                                                 </li>
                                             </ul>
@@ -186,6 +186,7 @@
                                             <li><a href="login-register.html">login</a></li>
                                             <li><a href="login-register.html">register</a></li>
                                             <li><a href="my-account.html">my account</a></li>
+                                            <li><a href="{{ route('donhangs.index') }}">My Order</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -195,9 +196,9 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('cart.list')}}" class="minicart-btn">
+                                        <a href="{{ route('cart.list') }}" class="minicart-btn">
                                             <i class="pe-7s-shopbag"></i>
-                                            <div class="notification">{{session('cart')? count(session('cart')):'0'}}</div>
+                                            <div class="notification">{{ session('cart') ? count(session('cart')) : '0' }}</div>
                                         </a>
                                     </li>
                                 </ul>
@@ -223,7 +224,7 @@
                     <div class="mobile-main-header">
                         <div class="mobile-logo">
                             <a href="index.html">
-                                <img src="{{ asset('assets/client/img/logo/logo.png')}}" alt="Brand Logo">
+                                <img src="{{ asset('assets/client/img/logo/logo.png') }}" alt="Brand Logo">
                             </a>
                         </div>
                         <div class="mobile-menu-toggler">

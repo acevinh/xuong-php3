@@ -23,14 +23,19 @@ class DanhMucRequest extends FormRequest
     {
         return [
             'ten_danh_muc' => 'required|max:255',
-
         ];
     }
-    public function messages()
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
     {
         return [
-            'ten_danh_muc.required' => 'Tên danh mục là bắt buộc',
-            'ten_danh_muc.max:255' => 'Tên danh mục không được quá 255 ký tự',
+            'ten_danh_muc.required' => 'Tên danh mục là bắt buộc.',
+            'ten_danh_muc.max' => 'Tên danh mục không được quá 255 ký tự',
         ];
     }
 }

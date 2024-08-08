@@ -3,17 +3,19 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\DonHang;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    const role_admin = 'Admin';
-    const role_user = 'User';
 
+    const ROLE_ADMIN = 'Admin';
+
+    const ROLE_USER = 'User';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +24,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'phone',
         'email',
+        'address',
         'password',
         'role'
     ];
@@ -44,6 +48,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password'=> 'hashed'
-    ]; 
+        'password' => 'hashed',
+    ];
+
+    public function donHang()
+    {
+        return $this->hasMany(DonHang::class);
+    }
 }

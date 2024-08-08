@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SanPham extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'ma_san_pham',
         'ten_san_pham',
@@ -24,19 +25,24 @@ class SanPham extends Model
         'is_new',
         'is_hot',
         'is_hot_deal',
-        'is_show_home'
+        'is_show_home',
     ];
+
     protected $casts = [
-        'is_type'=>'boolean',
-        'is_new'=>'boolean',
-        'is_hot'=>'boolean',
-        'is_hot_deal'=>'boolean',
-        'is_show_home'=>'boolean'
-            ];
-    public function danhMuc(){
+        'is_type'  => 'boolean',
+        'is_new'  => 'boolean',
+        'is_hot'  => 'boolean',
+        'is_hot_deal'  => 'boolean',
+        'is_show_home'  => 'boolean',
+    ];
+
+    public function danhMuc()
+    {
         return $this->belongsTo(DanhMuc::class);
     }
-    public function hinhAnhSanPham(){
+
+    public function hinhAnhSanPham()
+    {
         return $this->hasMany(HinhAnhSanPham::class);
     }
 }

@@ -1,6 +1,15 @@
 @extends('layouts.client')
+
 @section('css')
+    <style>
+        .tab-one {
+            img {
+                max-width: 250px;
+            }
+        }
+    </style>
 @endsection
+
 @section('content')
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -38,30 +47,28 @@
                                     </div>
                                     @foreach ($sanPham->hinhAnhSanPham as $item)
                                         <div class="pro-large-img img-zoom">
-                                            <img src="{{ $item->hinh_anh }}"
-                                                alt="product-details" />
+                                            <img src="{{ Storage::url($item->hinh_anh) }}" alt="product-details" />
                                         </div>
                                     @endforeach
 
-                                    
                                 </div>
                                 <div class="pro-nav slick-row-10 slick-arrow-style">
                                     <div class="pro-nav-thumb">
                                         <img src="{{ Storage::url($sanPham->hinh_anh) }}" alt="product-details" />
                                     </div>
                                     @foreach ($sanPham->hinhAnhSanPham as $item)
-                                    <div class="pro-nav-thumb">
-                                        <img src="{{$item->hinh_anh}}"alt="product-details" />
-                                    </div>
-                                @endforeach
+                                        <div class="pro-nav-thumb">
+                                            <img src="{{ Storage::url($item->hinh_anh) }}" alt="product-details" />
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="product-details-des">
                                     <div class="manufacturer-name">
-                                        <a href="product-details.html">Mã sản phẩm: {{$sanPham->ma_san_pham}}</a>
+                                        <a href="product-details.html">Mã sản phẩm: {{ $sanPham->ma_san_pham }}</a>
                                     </div>
-                                    <h3 class="product-name">{{$sanPham->ten_san_pham}}</h3>
+                                    <h3 class="product-name">{{ $sanPham->ten_san_pham }}</h3>
                                     <div class="ratings d-flex">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -69,36 +76,38 @@
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <div class="pro-review">
-                                            <span>{{$sanPham->luot_xem}} Lượt xem</span>
+                                            <span>{{ $sanPham->luot_xem }} Lượt xem</span>
                                         </div>
                                     </div>
                                     <div class="price-box">
-                                        <span class="price-regular">{{number_format($sanPham->gia_khuyen_mai,0,'','.') }} đ</span>
-                                        <span class="price-old"><del>{{number_format($sanPham->gia_san_pham,0,'','.')}} đ</del></span>
+                                        <span
+                                            class="price-regular">{{ number_format($sanPham->gia_khuyen_mai, 0, '', '.') }}
+                                            đ</span>
+                                        <span class="price-old"><del>{{ number_format($sanPham->gia_san_pham, 0, '', '.') }}
+                                                đ</del></span>
                                     </div>
-                                   
+
                                     <div class="availability">
                                         <i class="fa fa-check-circle"></i>
-                                        <span>Số lượng: {{$sanPham->so_luong}}</span>
+                                        <span>Số lượng: {{ $sanPham->so_luong }}</span>
                                     </div>
                                     <p class="pro-desc">
-                                       Mô tả ngắn: <br>
-                                       {{$sanPham->mo_ta_ngan}}
+                                        Mô tả ngắn: <br />
+                                        {{ $sanPham->mo_ta_ngan }}
                                     </p>
-                                <form action="{{route('cart.add')}}" method="post">
-                                    @csrf
-                                    <div class="quantity-cart-box d-flex align-items-center">
-                                        <h6 class="option-title">qty:</h6>
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1" id="quantityInput" name="quantity"></div>
-                                            <input type="hidden" name="product_id" value="{{$sanPham->id}}">
+                                    <form action="{{ route('cart.add') }}" method="POST">
+                                        @csrf
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <h6 class="option-title">qty:</h6>
+                                            <div class="quantity">
+                                                <div class="pro-qty"><input type="text" value="1" name="quantity" id="quantityInput"></div>
+                                                <input type="hidden" name="product_id" value="{{ $sanPham->id }}">
+                                            </div>
+                                            <div class="action_link">
+                                                <button type="submit" class="btn btn-cart2">Add to cart</button>
+                                            </div>
                                         </div>
-                                        <div class="action_link">
-                                            <button type="submit" class="btn btn-cart2">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </form>
-                                    
+                                    </form>
                                     <div class="useful-links">
                                         <a href="#" data-bs-toggle="tooltip" title="Compare"><i
                                                 class="pe-7s-refresh-2"></i>compare</a>
@@ -137,7 +146,7 @@
                                         <div class="tab-pane fade show active" id="tab_one">
                                             <div class="tab-one">
                                                 <p>
-                                                  {!!$sanPham->noi_dung!!}
+                                                    {!! $sanPham->noi_dung !!}
                                                 </p>
                                             </div>
                                         </div>
@@ -259,58 +268,47 @@
                     <div class="product-carousel-4 slick-row-10 slick-arrow-style">
                         <!-- product item start -->
                         @foreach ($listSanPham as $item)
-                           <div class="product-item">
-                            <figure class="product-thumb">
-                                <a href="product-details.html">
-                                    <img class="pri-img" src="{{ Storage::url($item->hinh_anh)}}"
-                                        alt="product">
-                                    <img class="sec-img" src="{{ Storage::url($item->hinh_anh)}}"
-                                        alt="product">
-                                </a>
-                                <div class="product-badge">
-                                    <div class="product-label new">
-                                        <span>new</span>
+                            <div class="product-item">
+                                <figure class="product-thumb">
+                                    <a href="product-details.html">
+                                        <img class="pri-img" src="{{ Storage::url($item->hinh_anh) }}" alt="product">
+                                        <img class="sec-img" src="{{ Storage::url($item->hinh_anh) }}" alt="product">
+                                    </a>
+                                    <div class="product-badge">
+                                        <div class="product-label new">
+                                            <span>new</span>
+                                        </div>
+                                        <div class="product-label discount">
+                                            <span>10%</span>
+                                        </div>
                                     </div>
-                                    <div class="product-label discount">
-                                        <span>10%</span>
+                                    <form action="{{ route('cart.add') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="hidden" name="product_id" value="{{ $item->id }}">
+                                        <div class="cart-hover">
+                                            <button class="btn btn-cart">add to cart</button>
+                                        </div>
+                                    </form>
+                                </figure>
+                                <div class="product-caption text-center">
+                                    <div class="product-identity">
+                                        <p class="manufacturer-name"><a
+                                                href="product-details.html">{{ $item->danhMuc->ten_danh_muc }}</a></p>
                                     </div>
-                                </div>
-                                <div class="button-group">
-                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left"
-                                        title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left"
-                                        title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span
-                                            data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i
-                                                class="pe-7s-search"></i></span></a>
-                                </div>
-                                <form action="{{route('cart.add')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="quantity" value="1">
-                                    <input type="hidden" name="product_id" value="{{$item->id}}">
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
+                                    <h6 class="product-name">
+                                        <a href="product-details.html">{{ $item->ten_san_pham }}</a>
+                                    </h6>
+                                    <div class="price-box">
+                                        <span class="price-regular">{{ number_format($item->gia_khuyen_mai, 0, '', '.') }}
+                                            đ</span>
+                                        <span class="price-old"><del>{{ number_format($item->gia_san_pham, 0, '', '.') }}
+                                                đ</del></span>
                                     </div>
-                                </form>
-                            </figure>
-                            <div class="product-caption text-center">
-                                <div class="product-identity">
-                                    <p class="manufacturer-name"><a href="product-details.html">{{$item->danhMuc->ten_danh_muc}}</a></p>
-                                </div>
-                                
-                                <h6 class="product-name">
-                                    <a href="product-details.html">{{$item->ten_san_pham}}</a>
-                                </h6>
-                                <div class="price-box">
-                                    <span class="price-regular">{{number_format($sanPham->gia_khuyen_mai,0,'','.') }} đ</span>
-                                    <span class="price-old"><del>{{number_format($sanPham->gia_san_pham,0,'','.')}} đ</del></span>
                                 </div>
                             </div>
-                        </div>  
                         @endforeach
-                       
                         <!-- product item end -->
-
                     </div>
                 </div>
             </div>
@@ -318,33 +316,36 @@
     </section>
     <!-- related products area end -->
 @endsection
+
 @section('js')
-<script>
-     $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
-    $('.pro-qty').append('<span class="inc qtybtn">+</span>');
-    $('.qtybtn').on('click', function () {
-        var $button = $(this);
-        var $input = $button.parent().find('input')
-        var oldValue = parseFloat($input.val());
-        
-        if($button.hasClass('inc')){
-            var newVal = oldValue+1;
-        }else{
-            if(oldValue>1){
-                var newVal = oldValue-1;    
-            }else{
-                var newVal = 1;
+    <script>
+        $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
+        $('.pro-qty').append('<span class="inc qtybtn">+</span>');
+        $('.qtybtn').on('click', function() {
+            var $button = $(this);
+            var $input = $button.parent().find('input')
+            var oldValue = parseFloat($input.val());
+
+            if ($button.hasClass('inc')) {
+                var newVal = oldValue + 1;
+            } else {
+                if (oldValue > 1) {
+                    var newVal = oldValue - 1;
+                } else {
+                    var newVal = 1;
+                }
             }
-        }
-        $input.val(newVal);
-	});
-    // sử lý nếu ng dùng nhập số âm 
-    $('#quantityInput').on('change',function(){
-        var value = parseInt($(this).val(),10);
-        if (isNaN(value) ||  value <1 ) {
-            alert('số lượng phải lớn hơn 1');
-            $(this).val(1);
-        }
-    })
-</script>
+            $input.val(newVal);
+        });
+
+        // Xử lý nếu người dùng nhập số âm
+        $('#quantityInput').on('change', function () {
+            var value = parseInt($(this).val(), 10);
+
+            if (isNaN(value) || value < 1) {
+                alert('Số lượng phải lớn hơn bằng 1.')
+                $(this).val(1)
+            }
+        })
+    </script>
 @endsection
